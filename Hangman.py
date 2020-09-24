@@ -6,13 +6,29 @@ guessed_letters = []
 word = input("Player 1: Please input your word\n")
 
 time.sleep(1)
+print("\n")
 
 while lives > 0:
-  guess = input("Player 2: Please type a letter\n")
+  print("You have " + str(lives) + " lives remaining.")
+  guess = input("Player 2: Please guess a letter\n")
   guessed_letters.append(guess)
+  output_word = ""
   for char in word:
-    if guess in guessed_letters:
-      print (char)
+    if char in guessed_letters:
+      output_word += char
     else:
-      print ("*")
+      output_word += "*"
+  if (guess not in list(word)):
+    lives -= 1
+  print (output_word)
 
+  if (output_word == word):
+    print("\n")
+    print("Player two wins!")
+    print ("The word was: " + word)
+    break
+
+if (lives == 0):
+  print("\n")
+  print("Player one wins!")
+  print("The word was: " + word)
