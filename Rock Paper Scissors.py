@@ -10,8 +10,8 @@ def computer_choose():
     
 def checkInput(player_input):
     if (player_input.lower() not in rps):
-        print ("Wrong input - please try again")
-        
+        print ("Wrong input - please try again\n")
+        return None
     else:
         return player_input.lower()
             
@@ -23,22 +23,18 @@ def win(winner):
         playerScore += 1
     else:
         computerScore += 1
-    print ("Player Score:" + str(playerScore))
-    print ("Computer Score:" + str(computerScore))
-    print ("\n")
-    
+    print ("Player Score: " + str(playerScore))
+    print ("Computer Score: " + str(computerScore) + "\n")    
     if (playerScore == 10):
-        print ("PLAYER WINS!!")
+        print ("Player wins the match! Congratulations!")
         won = True
         quit()
     if  (computerScore == 10):
-        print ("COMPUTER WINS!!")
+        print ("Computer wins the match! Better luck next time!")
         won = True
         quit()        
         
 def rockPaperScissors(computer, player):
-    print ("computer: " + computer)
-    print ("player: " + player)
     if (computer == playerInput):
         print ("Draw!\n")
     elif (computer == "rock" and player == "paper"):
@@ -56,11 +52,8 @@ def rockPaperScissors(computer, player):
 
 while won == False:
     playerInput = input("Please enter Rock, Paper or Scissors\n")
+    if (checkInput(playerInput) is None):
+        continue
     playerInput = checkInput(playerInput)
     computer = computer_choose()
     rockPaperScissors(computer, playerInput)
-    
-    
-
-
-
