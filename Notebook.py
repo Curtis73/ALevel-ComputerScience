@@ -11,3 +11,5 @@ while True:
     if (num >= 0 and num < 10):
         new_note = input("Please enter the new note: ")
         notes[num] = new_note
+    else:
+        print("Error: please specify a number between 0 and 9")
