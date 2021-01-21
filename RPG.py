@@ -39,8 +39,3 @@ while True:
         search()
     else:
         print ("Invalid command, please try again")
-        print(command)
-
-
-
-
