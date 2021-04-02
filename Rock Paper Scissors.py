@@ -1,10 +1,12 @@
 import random
 
+# Initialize Variables
 rps = ["rock", "paper", "scissors"]
 computerScore = 0
 playerScore = 0
 won = False
 
+# Subroutines
 def computer_choose():
     return random.choice(rps)
     
@@ -50,10 +52,11 @@ def rockPaperScissors(computer, player):
     elif (computer == "scissors" and player == "rock"):
         win("Computer")
 
+# Main Code
 while won == False:
     playerInput = input("Please enter Rock, Paper or Scissors\n")
-    if (checkInput(playerInput) is None):
+    if (checkInput(playerInput) is None): # Validate user input
         continue
     playerInput = checkInput(playerInput)
-    computer = computer_choose()
-    rockPaperScissors(computer, playerInput)
+    computer = computer_choose() # Choose computer's move
+    rockPaperScissors(computer, playerInput) # Roll
